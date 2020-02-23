@@ -93,7 +93,8 @@ class MergeSort
 	public static void main(String args[]) 
 	{ 
 //		int arr[] = {12, 11, 13, 5, 6, 7}; 
-		int arr[] = {8,7,6,5,4,3,2,1,0};
+//		int arr[] = {8,7,6,5,4,3,2,1,0};
+		int arr[] = {9,3,7,5,6,4,8,2};
 
 		System.out.println("Given Array"); 
 		printArray(arr); 

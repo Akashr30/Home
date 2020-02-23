@@ -91,8 +91,7 @@ public class BooleanMatrix {
 	public static void main (String[] args) throws IOException 
 	 {
        // Scanner input = new Scanner(System.in);
-       BufferedReader br = new BufferedReader(new
-       InputStreamReader(System.in)); 
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
         int num = Integer.parseInt(br.readLine());
         for (int i = 0 ; i < num ; i++ ){
             int m = Integer.parseInt(br.readLine());

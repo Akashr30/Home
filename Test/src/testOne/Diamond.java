@@ -1,8 +1,15 @@
 package testOne;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Diamond {
 
 	public static void main(String[] args) {
+		List<Integer> l = new ArrayList<>();
+		l.add(1);
+		List<List<Integer>> al = new ArrayList<>();
+		al.add(l);
 		/*int i =0,j=0,k=0;
 		for (i = 1 ; i < 5 ; i++) {
 			for (j = 0; j<i;j++) {
