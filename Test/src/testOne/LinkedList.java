@@ -1,6 +1,6 @@
 package testOne;
 
-class LinkedList 
+class LinkedListt 
 { 
     Node head; // head of linked list 
   
@@ -62,7 +62,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedListt llist = new LinkedListt(); 
         for (int i=1; i<50; i++) 
         { 
             llist.push(i); 

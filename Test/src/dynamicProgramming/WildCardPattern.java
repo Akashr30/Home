@@ -11,8 +11,8 @@ class WildCardPattern
 		sc.nextLine();
 		while(t>0)
 		{
-			String pat = "b*ab";
-			String text = "baaabab";
+			String pat = "b*aeb";
+			String text = "baefghzxcabab";
 			GfG g = new GfG();
 			System.out.println(g.wildCard(pat,text));
 			t--;
