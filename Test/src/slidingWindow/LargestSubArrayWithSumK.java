@@ -5,56 +5,85 @@ package slidingWindow;
 import java.io.*; 
 import java.util.*; 
 
-class LargestSubArrayWithSumK { 
+class LargestSubArrayWithSumK {
+    
+    static int maxSumSubArray(int[] nums,int len , int total)  {
+        
+       /* int max = 0;
+        int i= 0;
+        int start = i;
+        int sum = 0;
+//         6 -5
+// 10 5 2 7 1 9
+        
+        for (i = 0 ; i < len ; i++) {
+            
+            
+            
+            while (nums[i]+sum > total && start < i) {
+                
+                sum -= nums[start];
+                start++;
+            }
+            
+            if (nums[i]+sum < total && !(nums[i]+sum == total )) {
+                sum = nums[i]+sum;
+            }
+            
+            if (nums[i]+sum == total) {
+                sum += nums[i];
+                max = Math.max((i-start)+1,max);
+            }    
+        }
+        return max;*/
+    	
+    	  
 
-	// function to find the length of longest 
-	// subarray having sum k 
-	static int lenOfLongSubarr(int[] arr, int n, int k) 
-	{ 
-			// HashMap to store (sum, index) tuples 
-			HashMap<Integer, Integer> map = new HashMap<>(); 
-			int sum = 0, maxLen = 0; 
-
-			// traverse the given array 
-			for (int i = 0; i < n; i++) { 
-				
-				// accumulate sum 
-				sum += arr[i]; 
-				
-				// when subarray starts from index '0' 
-				if (sum == k) 
-					maxLen = i + 1; 
-
-				// make an entry for 'sum' if it is 
-				// not present in 'map' 
-				if (!map.containsKey(sum)) { 
-					map.put(sum, i); 
-				} 
-
-				// check if 'sum-k' is present in 'map' 
-				// or not 
-				if (map.containsKey(sum - k)) { 
-						
-					// update maxLength 
-					if (maxLen < (i - map.get(sum - k))) 
-						maxLen = i - map.get(sum - k); 
-				} 
-			} 
-			
-			return maxLen;			 
-	} 
-
-	// Driver code 
-	public static void main(String args[]) 
-	{ 
-//			int[] arr = {10, 5, 2, 7, 1, 9}; 
-//		int k = 15; 
-			int arr[] = {-5, 8, -14, 2, 4, 12};
-			int k = -5;
-			int n = arr.length; 
-			System.out.println("Length = " + 
-								lenOfLongSubarr(arr, n, k)); 
-	} 
+        
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int sum = 0;
+        int  max = 0;
+        for (int i = 0 ; i < len ; i++) {
+            sum += nums[i];
+           
+            if (sum == total)
+            	max = i+1;
+            
+            if (!map.containsKey(sum))
+            	map.put(sum, i);
+            
+            if (map.containsKey(sum-total)) {
+            	
+            	if (max < i-map.get(sum-total)) {
+            		max = i - map.get(sum - total);
+            	}
+            }
+        }
+        
+        return max;
+        
+    
+    }
+     
+	public static void main (String[] args)
+	 {
+	    
+	    Scanner sc = new Scanner(System.in);
+	    int test = Integer.parseInt(sc.nextLine());
+	    
+	    while (test-- > 0) {
+	        
+	        String lenAndSum = sc.nextLine();
+	        int [] arr = Arrays.stream(lenAndSum.split(" ")).mapToInt(Integer::parseInt).toArray();
+	        String num = sc.nextLine();
+	        int[] nums = Arrays.stream(num.split(" ")).mapToInt(Integer::parseInt).toArray();
+	        int len = arr[0];
+	        int total = arr[1];
+	        System.out.println(maxSumSubArray(nums,len,total));
+	    }
+	    
+	    
+	 }
 } 
 
 //This code is contibuted by rachana soma 
