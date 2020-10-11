@@ -43,20 +43,14 @@ public class MinimumJumps {
 	
 	
 	public static void main(String[] ar) {
-	    Scanner sc = new Scanner(System.in);
-	    int test = Integer.parseInt(sc.nextLine());
-	    
-	    
-	    while (test-- > 0) {
 	        
-	        int len = Integer.parseInt(sc.nextLine());
-	        String str = sc.nextLine();
-	        int[] arr = Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
+			int n = 6;
+	        int[] arr = {1,4,3,2,6,7};
+	        int len = arr.length;
 	        dp = new int[len+1];
 	        Arrays.fill(dp, -1);
             System.out.println(minJumps(arr,0,len-1,dp));
             System.out.println("done");
-	    }
 	 }
 }
 

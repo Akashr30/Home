@@ -27,46 +27,24 @@ class HeightOfTree
 	down to the farthest leaf node.*/
 	int maxDepth(HeightNode node) 
 	{
-		
-		/*int maxx = 0;
-		
-		if (node == null) {
-			return 0;
-		}
-		
-		int left = maxDepth(node.left);
-		int right = maxDepth(node.right);
-		
-		if (left > right) {
-            maxx = left;
-        } else if (right > left ) {
-            maxx = right;
-        } else {
-            maxx = left;
-        }
-		
-		return 1+maxx;*/
-		
-	/*	Level order traversal
-	 * 	Queue<HeightNode> q = new LinkedList();
-		q.add(node);
-		
-		while (!q.isEmpty() ) {
-			HeightNode temp = q.poll();
-			if (temp != null) {
-				if (temp.left != null) {
-					q.add(temp.left);
-				}
-				if (temp.right != null) {
-					q.add(temp.right);
-				}
-			}
-			System.out.println(q.poll());
-		}*/
+		HeightNode temp = node;
+		HeightNode mirror = find(temp);
 		
 		return 1;
 	} 
 	
+	private HeightNode find(HeightNode root) {
+		
+		 if (root == null)
+	            return null;
+	        
+		 HeightNode lhs = find(root.left);
+		 HeightNode rhs = find(root.right);
+	        root.left = rhs;
+	        root.right = lhs;
+	        
+	        return root;
+	}
 	/* Driver program to test above functions */
 	public static void main(String[] args) 
 	{ 
