@@ -5,9 +5,9 @@ import java.util.List;
 
 public class InsertInterval {
 	
-	public static int[][] insert(int[][] arr, int[] intr) {
+	/*public static int[][] insert(int[][] arr, int[] intr) {
         
-        Queue<int[]> q = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         
         for (int i = 0 ; i < arr.length ; i++) {
             if (intr[0] > arr[i][0]) {
@@ -45,7 +45,7 @@ public class InsertInterval {
         }
         
         return ans;
-    }
+    }*/
 
 	public static void main(String[] args) {
 

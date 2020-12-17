@@ -11,5 +11,7 @@ public class ControllerLevelRequestMappingExample {
 	public String showForm() {
 		return "showForm";
 	}
-
+	int a = 5;
+	double b = (double)a;
+	int c = (int)b;
 }

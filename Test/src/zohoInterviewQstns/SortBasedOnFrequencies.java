@@ -2,6 +2,7 @@ package zohoInterviewQstns;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class SortBasedOnFrequencies {
 	
@@ -39,7 +41,6 @@ public class SortBasedOnFrequencies {
 				 map.put(arr[i], temp+1);
 			 }
 		 }
-		 
 //		 ArrayList<subClass> al = new ArrayList<>();
 		 subClass[] arr1 = new subClass[map.size()];
 		 Iterator<Map.Entry<Integer, Integer>> itr = map.entrySet().iterator();

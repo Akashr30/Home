@@ -63,7 +63,7 @@ class MergeSort
 	} 
 
 	// Main function that sorts arr[l..r] using 
-	// merge() 
+	// merge() 9,8,7,6,5,4,3,2,1
 	void sort(int arr[], int l, int r) 
 	{ 
 		if (l < r) 
@@ -98,6 +98,8 @@ class MergeSort
 
 		System.out.println("Given Array"); 
 		printArray(arr); 
+		String s = "leetcode";
+		System.out.println(s.substring(1)); 
 
 		MergeSort ob = new MergeSort(); 
 		ob.sort(arr, 0, arr.length-1); 
