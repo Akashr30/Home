@@ -5,7 +5,7 @@ import java.util.*;
 //Java program for implementation of QuickSort 
 class QuickSort 
 { 
-	int partition(int arr[], int low, int high) 
+	/*int partition(int arr[], int low, int high) 
 	{ 
 		int pivot = arr[high]; 
 		int i = (low-1); 
@@ -28,7 +28,21 @@ class QuickSort
 		arr[high] = temp; 
 
 		return i+1; 
-	} 
+	} */
+	
+	private int partition(int[] nums, int l, int r) {
+        int pivot = nums[l];
+        while (l < r) {
+            while (l < r && nums[r] >= pivot)
+            	r--;
+            nums[l] = nums[r];
+            while (l < r && nums[l] <= pivot)
+            	l++;
+            nums[r] = nums[l];
+        }
+        nums[l] = pivot;
+        return l;
+    }
 
 	void sort(int arr[], int low, int high) 
 	{ 
@@ -51,7 +65,7 @@ class QuickSort
 
 	public static void main(String args[]) 
 	{ 
-		int arr[] = {6,2,3,1,2,4,5,5,3}; 
+		int arr[] = {6,2,3,1,2,4,7,5,3}; 
 		int n = arr.length; 
 
 		QuickSort ob = new QuickSort(); 

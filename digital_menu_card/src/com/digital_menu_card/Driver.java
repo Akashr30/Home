@@ -74,12 +74,14 @@ public class Driver {
 			if (cheeseOptions.contains(option)) {
 				String cheeseType = PizzaUtil.getCheese(option);
 				ingreds.setCheese(new Cheeses(cheeseType));
+			}else {
+				System.out.println("------- option Not present in the list -------");
+				break;
 			}
-			System.out.println("------- option Not present in the list -------");
 		}
 		addIngredients(totalIngredientsAdded,maxSizeForIngredients,ingreds);
 		while (true) {
-			modifyVeggies();
+//			modifyVeggies();
 			
 		}
 		

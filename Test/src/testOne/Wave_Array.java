@@ -34,15 +34,14 @@ class Wave_Array
 	public static void main (String[] args)
 	 {
 	    Scanner sc = new Scanner(System.in);
-	    int test = sc.nextInt();
-	    sc.nextLine();
+	    int test = 1;
 	    
 	    while (test > 0) {
 	        
-	        int len = sc.nextInt();
+	        int len = 5;
 	        sc.nextLine();
-	        String str = sc.nextLine();
-	        String[] arr = str.split(" ");
+	        String str = "10,5,6,2,20,3,100,80";
+	        String[] arr = str.split(",");
 	        
 	        String waveString = makeWave(arr,len);
 	        System.out.println(waveString);

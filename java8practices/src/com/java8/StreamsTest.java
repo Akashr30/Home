@@ -25,7 +25,9 @@ public class StreamsTest {
 		String[] arr= {"1","2","3","4"};
 		int[] arr1= {2,4,6,8,10,18,19,21};
 		double[] arr2= {2,4,6,8,10,18,19,21};
-		Arrays.stream(arr1).filter(new StreamsTest()::find).findAny().ifPresent(StreamsTest::println);
+		StreamsTest obj =  new StreamsTest();
+		Arrays.stream(arr1).filter(obj::find).findAny().ifPresent(StreamsTest::println);
+		Arrays.stream(arr1).filter(new StreamsTest()::find).forEach(StreamsTest::println);
 		int a1 = Arrays.stream(arr1).filter(new StreamsTest()::find).findAny().getAsInt();
 		double a2 = Arrays.stream(arr2).filter(new StreamsTest()::find).findAny().getAsDouble();
 //		Arrays.stream(arr1).filter(new StreamsTest()::find).forEach(StreamsTest::println);
