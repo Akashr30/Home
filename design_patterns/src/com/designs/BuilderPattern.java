@@ -10,16 +10,16 @@ public class BuilderPattern {
 			this.size = builder.size;
 		}
 
-		private String type;//Should be a enum Lazy bum
+		private String type;
 		private boolean sugar;
 		private boolean milk;
-		private String size;//Should be a enum Lazy bum
+		private String size;
 
 		public static class Builder {
-			private String type;//Should be a enum Lazy bum
+			private String type;
 			private boolean sugar;
 			private boolean milk;
-			private String size;//Should be a enum Lazy bum
+			private String size;
 
 			public Builder(String type) {
 				this.type = type;
