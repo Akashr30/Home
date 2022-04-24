@@ -28,10 +28,6 @@ public class SelectionSorting {
 			arr[i] = arr[min];
 			arr[min] = temp;
 			
-//			idxOf = Integer.MIN_VALUE;
-//			}
-			
-			
 		}
 
 		for(int a : arr) {

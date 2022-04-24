@@ -1,0 +1,29 @@
+Create Mysql Query : 
+
+CREATETABLE employee
+ (id int (10),
+ name varchar(50),
+ email varchar(60),
+ PRIMARY KEY (id)
+ );
+ 
+ ALTER Query : 
+ 
+ ALTER TABLE employee
+ ADD age varchar(50);
+ 
+ Insert Query : 
+ 
+ insert into employee values(1, "Deva", "deva@gmail.com", "25");
+ 
+ Update Query : 
+ 
+ update employee set name="sowmya" where id = '1';
+ 
+ Delete Query : 
+ 
+ delete from employee where id='1';
+ 
+ Select query : 
+ 
+ SELECT * from employee;x

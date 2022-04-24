@@ -1,144 +1,75 @@
 package testOne;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class RemoveAdjacent {
 	
-//	static char[] charsNew = null;
-	
-	/*static String str = "qpaaaaadaaaaadprq";
-	static char[] chars = str.toCharArray();
-	static int len = chars.length-1;
-	
-	static String newStr  = ""; 
-	static boolean hasChar = true;
-	static int x = 1;
-	
 
-	
-	static void removeAdjacentPairs(char[] chars , int len) {
-		
-		if (len == 0 && !(chars[len]==chars[len+1])) {
-			System.out.print(chars[len]);
-			newStr  += chars[len];
-			return ;
-		} else if (len == 0 && (chars[len]==chars[len+1])) {
-			
-			return ;
-		}
-		
-		removeAdjacentPairs(chars , len-1);
-		
-		 if ( chars.length-1 == len && !(chars[len-1]==chars[len])){
-			System.out.print(chars[len]);
-			newStr  += chars[len];
-		} else if ( !(len == chars.length) && !(len == 0) && 
-					!(chars[len-1]== chars[len]) && !(chars[len]==chars[len+1])) {
-			System.out.print(chars[len]);
-			newStr  += chars[len];
-//			hasChar = false;
-		}else {
-			x++;
-			hasChar = true;
-		}
-			
-	}
-	
-	public static void main(String[] args) {
-
-		
-//		removeAdjacentPairs(chars,len);
-		
-		while (hasChar) {
-			if (x >= 1 ) {
-				x = 0;
-				removeAdjacentPairs(chars,len);
-				str = newStr;
-				chars = str.toCharArray();
-				len = chars.length-1;
-				newStr = "";
-				
-				System.out.println();
-			} else 
-				hasChar = false;
-		}
-	}*/
-	
-	
-	static String removeUtil(String str, char last_removed) 
-	{ 
-			// If length of string is 1 or 0 
-			if (str.length() == 0 || str.length() == 1) 
-				return str; 
-
-			// Remove leftmost same characters and recur for remaining 
-			// string 
-			if (str.charAt(0) == str.charAt(1)) 
-			{ 
-				last_removed = str.charAt(0); 
-				while (str.length() > 1 && str.charAt(0) == str.charAt(1)) 
-					str = str.substring(1, str.length()); 
-				str = str.substring(1, str.length()); 
-				return removeUtil(str, last_removed); 
-			} 
-
-			// At this point, the first character is definiotely different 
-			// from its adjacent. Ignore first character and recursively 
-			// remove characters from remaining string 
-			String rem_str = removeUtil(str.substring(1,str.length()), last_removed); 
-
-			// Check if the first character of the rem_string matches with 
-			// the first character of the original string 
-			if (rem_str.length() != 0 && rem_str.charAt(0) == str.charAt(0)) 
-			{ 
-				last_removed = str.charAt(0); 
-				return rem_str.substring(1,rem_str.length()); // Remove first character 
-			} 
-
-
-			// If remaining string becomes empty and last removed character 
-			// is same as first character of original string. This is needed 
-			// for a string like "acbbcddc" 
-			if (rem_str.length() == 0 && last_removed == str.charAt(0)) 
-				return rem_str; 
-
-			// If the two first characters of str and rem_str don't match, 
-			// append first character of str before the first character of 
-			// rem_str 
-			return (str.charAt(0) + rem_str); 
-	} 
-
-	static String remove(String str) 
-	{ 
-			char last_removed = '\0'; 
-			return removeUtil(str, last_removed);	 
-	} 
-
-	// Driver code 
-	public static void main(String args[]) 
-	{ 
-			String str1 = "geeksforgeegs"; 
-			System.out.println(remove(str1)); 
-
-			/*String str2 = "azxxxzy"; 
-			System.out.println(remove(str2)); 
-
-			String str3 = "caaabbbaac"; 
-			System.out.println(remove(str3)); 
-
-			String str4 = "gghhg"; 
-			System.out.println(remove(str4)); 
-
-			String str5 = "aaaacddddcappp"; 
-			System.out.println(remove(str5)); 
-
-			String str6 = "aaaaaaaaaa"; 
-			System.out.println(remove(str6)); 
-
-			String str7 = "qpaaaaadaaaaadprq"; 
-			System.out.println(remove(str7)); 
-
-			String str8 = "acaaabbbacdddd"; 
-			System.out.println(remove(str8));*/ 
-		
-	} 
-
+    static int flagInt = 0;
+    static int count = 0;
+    static String next = "";
+    static String lastRem = "";
+    public static String recur (ArrayList<String> al , int count , int len , String next) {
+    
+    String remVal = "";
+    
+    	if (al.size() == 1) {
+    		if (lastRem.equals(al.get(0)))
+    		al.remove(0);
+    		return "";
+    	}
+    	
+    	
+    	if (count == len) {
+    		return "";
+    	}
+    	
+    	String s = recur(al,++count,len,next);
+    	
+    	if (s.equalsIgnoreCase(al.get(count)) || al.get(count-1).equalsIgnoreCase(al.get(count))) {
+//    	if (al.get(count-1).equalsIgnoreCase(al.get(count))) {
+    		flagInt++;
+    		remVal = al.get(count);
+    		lastRem = al.get(count);
+    		al.remove(count);
+    	} else 
+    	remVal = al.get(count);
+    	return remVal;
+    }
+    
+    
+    
+	public static void main (String[] args)
+	 {
+	    Scanner sc = new Scanner(System.in);
+	    int test = Integer.parseInt(sc.nextLine());
+	    
+	    while (test-- > 0) {
+	        
+	        String[] str = sc.nextLine().split("");
+	        ArrayList<String> al = new ArrayList<>();
+	        al.add("");
+	        for (String s : str) {
+	            al.add(s);
+	        }
+	        
+	        do {
+	        	flagInt = 0;
+	           recur(al,count,al.size()-1,next);
+	            
+	        } while (flagInt > 0);
+	        
+	        StringBuffer sb = new StringBuffer();
+            
+            for (int i = 1 ; i < al.size();i++)
+                sb.append(al.get(i));
+                
+            System.out.println(sb.toString());
+	    }
+	 }
+	//mississipie
+	//aaaaaaaaaaaaa
+	//geeksforgeek
+	//rrmfqqfppejmiuivapyhgnhhwmni
 }
